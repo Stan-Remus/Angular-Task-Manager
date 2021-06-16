@@ -1,0 +1,41 @@
+<form class="example-form" [formGroup]="addTaskValidator">
+<h1>Add Task</h1>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Task Name</mat-label>
+        <input matInput placeholder="Buy Bitcoin" (keyup)="getTaskName($event)" formControlName="task">
+        <mat-error *ngIf="this.addTaskValidator.controls.task.hasError('required')">
+            This field is required
+          </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Alocated To</mat-label>
+        <input matInput placeholder="Bob" (keyup)="getPersonName($event)" formControlName="name">
+        <mat-error *ngIf="this.addTaskValidator.controls.name.hasError('required')">
+            This field is required
+          </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Details</mat-label>
+        <textarea matInput placeholder="Details" (keyup)="getDetails($event)" class="details" formControlName="details"></textarea >
+            <mat-error *ngIf="this.addTaskValidator.controls.details.hasError('required')">
+                This field is required
+              </mat-error>
+        </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Priority</mat-label>
+        <mat-select placeholder="Priority" (selectionChange)='onPrioritySelection()' [(value)]="priority" formControlName="priority">
+            <mat-option *ngFor="let prio of prioritys" [value]="prio.priority">
+                {{ prio.priority }}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="this.addTaskValidator.controls.priority.hasError('required')">
+            This field is required
+          </mat-error>
+    </mat-form-field>
+    <div class="buttons">
+    <button mat-raised-button (click)="close()">Close</button>
+    <button mat-raised-button class="add" [mat-dialog-close]="addTask" [disabled]="addTaskValidator.invalid" (click)="addTasks()"><i class="fa fa-plus" style="margin-right: 0.5em;"></i>Add Task</button>
+    </div>
+</form>

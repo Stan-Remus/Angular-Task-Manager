@@ -1,0 +1,33 @@
+table{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 6em;
+    width: 60em;
+}
+
+.red{
+    color: red;
+}
+.yellow{
+    color: #E9E700;
+}
+.green{
+    color: #32CD32;
+}
+.blue{
+    color: #3559D9;
+}
+.add{
+    background-color: #32CD32;
+    color: white;
+}
+
+.panel{
+    max-width: 12em;
+}
+.mat-expansion-panel:not([class*='mat-elevation-z']) {
+    box-shadow: none;
+}
+button{
+    min-width: 8em;
+}
